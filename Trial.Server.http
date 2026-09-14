@@ -9,12 +9,12 @@ POST {{Trial.Server_HostAddress}}/coa
 Content-Type: application/json
 
 {
-    "name": "sales",
-    "code": "1/1"
+    "name": "tax",
+    "code": "1/2"
 }
 ###
 
-GET {{Trial.Server_HostAddress}}/coa/{id:length(24)}
+GET {{Trial.Server_HostAddress}}/coa/6aa29657d41f8c5c0d2eff14
 
 ###
 
@@ -43,6 +43,6 @@ Content-Type: application/json
 
 ###
 
-GET {{Trial.Server_HostAddress}}/tb/{id:length(24)}
+GET {{Trial.Server_HostAddress}}/tb/6aa298e570137ace0c4a0048
 
 ###

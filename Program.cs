@@ -5,6 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 builder.Services.Configure<DataBaseSettings>(
     builder.Configuration.GetSection("TrialProjectDatabaseConfiguration"));
@@ -18,6 +27,8 @@ builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =
 });
 
 var app = builder.Build();
+
+app.UseCors("AllowAll");
 
 var tbGroup = app.MapGroup("/tb");
 tbGroup.MapGet("/", async (TBService tbService) =>
