@@ -15,7 +15,7 @@ public class COAService(IOptions<DataBaseSettings> DatabaseSetting)
 
     public async Task<ChartOfAccount?> GetAsync(string id) =>
         await _chartsOfAccountsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-
+    
     public async Task CreateAsync(ChartOfAccount newCOA) =>
         await _chartsOfAccountsCollection.InsertOneAsync(newCOA);
 
