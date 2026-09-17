@@ -1,26 +1,14 @@
-﻿]using Microsoft.AspNetCore.Mvc;
-using Trial.Server.Services;
+﻿using Microsoft.AspNetCore.Mvc;
 using Trial.Server.Models;
+using Trial.Server.Services;
+
 namespace Trial.Server.Controllers
 {
     [Route("/coa")]
-    [ApiController]
-    public class COAController : Controller
+    public class COAController : BaseApiController<ChartOfAccount>
     {
-        private readonly COAService service;
-        public COAController(COAService _service)
+        public COAController(GenericMongoDb<ChartOfAccount> database) : base(database)
         {
-            service = _service;
-        }
-        [HttpGet]
-        public ActionResult<Task<List<ChartOfAccount>>> GetCOAs()
-        {
-            return service.GetAsync();
-        }
-        [HttpPost]
-        public ActionResult<Task> CreateCOA(ChartOfAccount coa)
-        {
-            return service.CreateAsync(coa);
         }
     }
 }

@@ -1,26 +1,14 @@
-﻿]using Microsoft.AspNetCore.Mvc;
-using Trial.Server.Services;
+﻿using Microsoft.AspNetCore.Mvc;
 using Trial.Server.Models;
+using Trial.Server.Services;
+
 namespace Trial.Server.Controllers
 {
     [Route("/tb")]
-    [ApiController]
-    public class TBController : Controller
+    public class TBController : BaseApiController<TrialBalance>
     {
-        private readonly TBService service;
-        public TBController(TBService _service)
+        public TBController(GenericMongoDb<TrialBalance> database) : base(database)
         {
-            service = _service;
-        }
-        [HttpGet]
-        public ActionResult<Task<List<TrialBalance>>> GetTBs()
-        {
-            return service.GetAsync();
-        }
-        [HttpPost]
-        public ActionResult<Task> CreateTB(TrialBalance tb)
-        {
-            return service.CreateAsync(tb);
         }
     }
 }

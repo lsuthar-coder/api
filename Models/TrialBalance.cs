@@ -3,13 +3,13 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Trial.Server.Models
 {
-    public class TrialBalance
+    [MongoCollection(nameof(DataBaseSettings.TBCollectionName))]
+    public class TrialBalance : IBaseEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-
-        public TBEntry[] Entries { get; set; }
+        public TBEntry[] Entries { get; set; } = null!;
     }
 
     public class TBEntry

@@ -3,7 +3,8 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Trial.Server.Models
 {
-    public class ChartOfAccount
+    [MongoCollection(nameof(DataBaseSettings.COACollectionName))]
+    public class ChartOfAccount : IBaseEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

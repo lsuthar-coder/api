@@ -1,7 +1,14 @@
 @Trial.Server_HostAddress = https://localhost:7117
 
-
 GET {{Trial.Server_HostAddress}}/coa
+
+###
+
+GET {{Trial.Server_HostAddress}}/health
+
+###
+
+GET {{Trial.Server_HostAddress}}/tb
 
 ###
 
@@ -10,33 +17,25 @@ Content-Type: application/json
 
 {
     "name": "tax",
-    "code": "1/2"
+    "code": "1/2",
+    "accType": "",
+    "accGroup": ""
 }
-###
-
-GET {{Trial.Server_HostAddress}}/coa/6aa29657d41f8c5c0d2eff14
 
 ###
 
-GET {{Trial.Server_HostAddress}}/tb
-
-###
 POST {{Trial.Server_HostAddress}}/tb
 Content-Type: application/json
 
 {
-  "entries": [
-    {
-      "accountCode": "1/1",
+    "entries": [
+      {
+        "accountCode": "1/1",
       "name": "sales",
       "debit": "",
       "credit": 100.00
-    }
+      }
   ]
 }
-
-###
-
-GET {{Trial.Server_HostAddress}}/tb/6aa298e570137ace0c4a0048
 
 ###
