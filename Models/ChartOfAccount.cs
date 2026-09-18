@@ -13,5 +13,6 @@ namespace Trial.Server.Models
         public string Code { get; set; } = null!;
         public string accType { get; set; } = null!;
         public string accGroup { get; set; } = null!;
+
     }
 }

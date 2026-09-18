@@ -17,7 +17,8 @@ namespace Trial.Server.Models
         public string Name { get; set; } = null!;
         [BsonElement("Code")]
         public string AccountCode { get; set; } = null!;
-        public float Debit { get; set; }
-        public float Credit { get; set; }
+        public float Debit { get; set; } 
+        public float Credit { get; set; } 
+        
     }
 }
