@@ -59,6 +59,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
-app.MapGet("/health/", (string abc) => TypedResults.Ok("OKS"));
+app.MapGet("/health/", () => TypedResults.Ok("OKS"));
 
 app.Run();

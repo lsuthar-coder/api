@@ -1,6 +1,7 @@
 @Trial.Server_HostAddress = https://localhost:7117
 
-GET {{Trial.Server_HostAddress}}/health/akjshdaslkdhaasdsadad
+###}}/coa
+GET {{Trial.Server_HostAddress}}/health
 
 ###
-GET {{Trial.Server_HostAddress}}/coa
+
