@@ -37,5 +37,11 @@ namespace Trial.Server.Services
 
         public Task CreateAsync(T entity) =>
             collection.InsertOneAsync(entity);
+
+        public async Task UpdateAsync(string id, T updatedEntity) =>
+            await collection.ReplaceOneAsync(entity => entity.Id == id, updatedEntity);
+
+        public async Task RemoveAsync(string id) =>
+            await collection.DeleteOneAsync(entity => entity.Id == id);
     }
 }
